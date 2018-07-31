@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mostrar y esconder con Vue</title>
+</head>
+<body>
+    <div>
+        <p>
+            Este es un ejemplo de cómo mostramos o escondemos una parte de nuestra página usando los datos de nuestro componente y <code>v-if</code>
+        </p>
+    </div>
+    <div id="app">
+
+        <div >
+            <p>
+                <span>Te gusta el dulce de leche?</span>
+                <input type="checkbox" v-model="dulceDeLeche">
+            </p>
+            <div v-if="dulceDeLeche">
+                <p>Somos muchos!</p>
+            </div>
+            <div v-else="">
+                <p>Eso no está bien</p>
+            </div>
+        </div>
+        
+        <div>
+            <button @click="mostrarSecreto">Click para ver el secreto</button>
+        </div>
+        <div v-show="secretoRevelado">
+
+            <p>****** ** * ***** ** * * ********</p>
+            <span>(eso es un secreto)</span>
+        </div>
+    </div>
+
+    
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

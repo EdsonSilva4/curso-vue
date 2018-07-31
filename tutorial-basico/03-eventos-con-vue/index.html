@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos con Vue</title>
+</head>
+<body>
+    <div>
+        <p>
+            Este es un ejemplo de cómo usamos Vue para manejar eventos, como el click sobre un botón y cómo podemos escribir funciones en nuestro componente para que se puedan 
+            llamar desde el HTML
+        </p>
+    </div>
+    <div id="app">
+        <div class="ejemplo-1" @mouseover="pasoPorArriba">
+            <!-- un botón y un mensaje -->
+            {{ mensaje }}
+            <button @click="botonApretado">Motrar un mensaje</button>
+        </div>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formularios con Vue</title>
+</head>
+<body>
+    <div>
+        <p>
+            Este es un ejemplo de cómo usamos Vue para manejar formularios y lo fácil que es quedarnos con los datos que ingresa el usuario
+        </p>
+    </div>
+    <div id="app">
+        <div class="ejemplo-1">
+            <!-- un texto simple -->
+            <input type="text" v-model="textoEjemplo">
+            <p>{{ textoEjemplo }} </p>
+        </div>
+
+        <hr>
+
+        <div class="ejemplo-2">
+            <p>
+                <span>Nombre</span>
+                <input type="text" v-model="alumno.nombre">
+            </p>
+            <p>
+                <span>Edad</span>
+                <input type="number" v-model="alumno.edad">
+            </p>
+            <p>
+                <span>Es Estudiante?</span>
+                <input type="checkbox" v-model="alumno.esEstudiante">
+            </p>
+            <div>
+                <p>{{ alumno.nombre }} tiene {{ alumno.edad }} años y {{ alumno.esEstudiante ? ' es ' : ' no es '}} estudiante</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h3>Ingreso de vehículo</h3>
+            <p>
+                <span>Marca</span>
+                <input type="text" v-model="vehiculo.marca">
+            </p>
+            <p>
+                <span>Modelo</span>
+                <input type="text" v-model="vehiculo.modelo">
+            </p>
+            <p>
+                <span>Matricula</span>
+                <input type="text" v-model="vehiculo.matricula">
+            </p>
+            <button @click="agregarVehiculo">Agregar Vehiculo</button>
+
+        </div>
+    </div>
+
+    
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

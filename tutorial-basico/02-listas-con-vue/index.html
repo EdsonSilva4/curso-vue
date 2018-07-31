@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listas con Vue</title>
+</head>
+<body>
+    <div>
+        <p>Este es un ejemplo de cómo usamos Vue para recorrer una lista que tenemos en nuestro componente y a partir de eso poner elementos en pantalla</p>
+        <p>
+            Para eso usamos <code>v-for</code>, que funciona como un for pero dentro de HTML!
+        </p>
+    </div>
+    <div id="app">
+        <div v-for="alumno in alumnos">
+            <h3>Nombre: {{ alumno.nombre }}</h3>
+            <p>Edad: {{ alumno.edad }}</p>
+            <hr>
+        </div>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

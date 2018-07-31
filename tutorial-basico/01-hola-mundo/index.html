@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hola Mundo Vue</title>
+</head>
+<body>
+    <div>
+        <!-- esto no es parte de la aplicación vue -->
+        {{ mensaje }}
+    </div>
+    <div id="app">
+        {{ mensaje }}
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app', // el elemento sobre el que actúa la biblioteca, es necesario para lograr que vue funcione
+            data: { // es un objeto con propiedades que necesita tu aplicación o tu componente. se pueden mostrar directamente en pantalla usando la notación de llaves {{ }}
+                mensaje: 'Hola Mundo'
+            }
+        });
+    </script>
+</body>
+</html>
