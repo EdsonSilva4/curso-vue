@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>TODO List</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- encabezado -->
+        <h2>TODO App</h2>
+        <!-- formulario -->
+        <div class="seccion">
+            <!-- vue nos permite ejecutar metodos de nuestro componente usando @evento -->
+            <form @submit.prevent="agregarTarea">
+                <!-- v-model nos deja capturar el valor de lo que el usuario ingresa en un atributo de nuestro componente. -->
+                <input type="text" v-model="nuevaTarea.titulo" placeholder="El titulo de tu tarea">
+                <input type="text" v-model="nuevaTarea.descripcion" placeholder="La descripcion de la tarea">
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+        <!-- panel de tareas -->
+        <div class="panel">
+            <!-- tareas completadas -->
+            <div class="seccion pendientes">
+                <h3>Tareas Pendientes</h3>
+                <div class="tareas">
+                    <!-- cada tarea se muestra usando el v-for, que es como un for pero para html-->
+                    <div class="tarea pendiente" v-for="tarea in tareasNoCompletadas">
+                        <!-- Con esta notación hacemos referencia a la tarea del for -->
+                        <h4>{{ tarea.titulo }}</h4>
+                        <p>{{ tarea.descripcion }}</p>
+                        <button @click.prevent="completarTarea(tarea)">Completar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion completadas">
+                <h3>Tareas Completadas</h3>
+                <div class="tareas">
+                    
+                    <!-- lo mismo acá, tenemos un v-for para las tareas completadas -->
+                    <div class="tarea completada" v-for="tarea in tareasCompletadas">
+                        <h4>{{ tarea.titulo }}</h4>
+                        <p>{{ tarea.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluyo una versión de desarrollo de Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
