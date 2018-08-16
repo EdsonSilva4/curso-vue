@@ -11,7 +11,8 @@ var app = new Vue({
             marca: '',
             modelo: '',
             matricula: ''
-        }
+        }, 
+
     },
     methods: {
         agregarVehiculo: function() {
@@ -23,5 +24,7 @@ var app = new Vue({
                 matricula: ''
             }
         }
+
+
     }
 });
