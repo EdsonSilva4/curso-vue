@@ -22,7 +22,6 @@
        * Emite un evento global para avisar que el usuario quiere editar una tarea
        */
       editarTarea () {
-        console.log('editar tarea')
         this.$root.$emit('editartarea', this.tarea)
       }
     }
