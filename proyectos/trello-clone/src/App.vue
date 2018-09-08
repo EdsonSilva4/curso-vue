@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <esquema >
       <pizarron />
     </esquema>
@@ -20,4 +20,7 @@
 </script>
 
 <style>
+  #app {
+    height: inherit;
+  }
 </style>

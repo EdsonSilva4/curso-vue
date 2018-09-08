@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="esquema is-fullheight">
     <navegacion/>
-    <div class="cuerpo">
+    <div class="cuerpo section">
       <slot></slot>
     </div>
   </div>
@@ -18,5 +18,5 @@ export default {
 </script>
 
 <style scoped>
-
+  
 </style>
