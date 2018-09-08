@@ -1,17 +1,32 @@
 <template>
   <div>
     <!-- Muestra el titulo del pizarron si no estamos en modoEdicion  -->
-    <div v-show="!modoEdicion" @click="cambiarModoEdicion">
-      {{ pizarron.titulo }}
+    <div v-show="!modoEdicion" @click="cambiarModoEdicion" class="clickable" title="Cambiar Título">
+      <h3 class="title is-3">{{ pizarron.titulo }}</h3>
+     
     </div>
     <!-- Permite editar el titulo del pizarron si estamos en modoEdicion -->
     <div v-show="modoEdicion">
       <form @submit.prevent="actualizar">
-        <input type="text" v-model="titulo">
-        <!-- Boton para guardar cambios-->
-        <button type="submit" class="button primary">Guardar</button> 
-        <!-- Boton para cancelar -->
-        <button type="button" class="button error" @click.prevent="cancelar">Cancelar</button>
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" v-model="titulo">
+          </div>
+          <div class="control">
+            <!-- Boton para guardar cambios-->
+            <button type="submit" class="button is-success" title="Guardar">
+              <i class="fas fa-save"></i>
+            </button> 
+          </div>
+          <div class="control">
+            <!-- Boton para cancelar -->
+            <button type="button" class="button" @click.prevent="cancelar" title="Cancelar">
+              <i class="fas fa-undo"></i>
+            </button>
+          </div>
+        </div>
+        
+        
       </form>
       
     </div>
