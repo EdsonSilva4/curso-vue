@@ -19,7 +19,8 @@
     },
     methods: {
       editarTarea () {
-        console.log('Editar tarea')
+        console.log('editar tarea')
+        this.$root.$emit('editartarea', this.tarea)
       }
     }
   }

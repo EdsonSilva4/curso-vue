@@ -10,6 +10,10 @@
         <form-pipeline @crearPipeline="crearPipeline"/>
       </div>
     </div>
+    <panel-modal :activo="mostrarEdicionTarea" @cerrar="cerrarPanelEdicionTarea">
+        <editar-tarea :tarea="tareaSeleccionada" v-if="tareaSeleccionada != null"></editar-tarea>
+    </panel-modal>
+    
   </div>
 </template>
 
@@ -17,6 +21,8 @@
   import FormPizarron from './FormPizarron.vue'
   import Pipeline from '@/components/pipeline/Pipeline.vue'
   import FormPipeline from '@/components/pipeline/FormPipeline.vue'
+  import EditarTarea from '@/components/tareas/EditarTarea.vue'
+  import PanelModal from '@/components/general/PanelModal.vue'
 
   export default {
     data() {
@@ -32,11 +38,13 @@
               },
               {
                 titulo: 'Tarea 2',
-                descripcion: 'Descripcion de la tarea 1'
+                descripcion: 'Descripcion de la tarea 2'
               }
             ]
           }]
-        }
+        },
+        tareaSeleccionada: null,
+        mostrarEdicionTarea: false
       }
     },
     methods: {
@@ -52,17 +60,38 @@
       /**
        * Elimina la pipeline del pizarron
        */
-      eliminarPipeline(pipeline) {
+      eliminarPipeline (pipeline) {
         // obtengo el indice del pipeline
         var indicePipeline = this.pizarron.pipelines.indexOf(pipeline)
         // borro el pipeline segun su indice
         this.pizarron.pipelines.splice(indicePipeline, 1)
+      },
+      /**
+       * pone *tarea* como tareaSeleccionada
+       */
+      seleccionarTarea (tarea) {
+        this.tareaSeleccionada = tarea
+        this.mostrarEdicionTarea = true
+      },
+      cerrarPanelEdicionTarea () {
+        this.mostrarEdicionTarea = false
+        this.tareaSeleccionada = null
+      }
+    },
+    created () {
+      this.$root.$on('editartarea', this.seleccionarTarea)
+    },
+    computed: {
+      mostrarPanelEdicion () {
+        return this.tareaSeleccionada != null 
       }
     },
     components: {
       FormPizarron,
       Pipeline,
-      FormPipeline
+      FormPipeline,
+      EditarTarea,
+      PanelModal
     }
   }
 </script>
