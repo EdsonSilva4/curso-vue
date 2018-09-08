@@ -2,7 +2,7 @@
   <div class="column">
     <div class="field" v-show="!mostrarFormulario">
       <div class="control">
-        <button class="button is-link is-outlined is-fullwidth"  @click.prevent="toggleMostrarFormulario">
+        <button class="button is-link is-fullwidth"  @click.prevent="toggleMostrarFormulario">
           + Agregar tarea
         </button>
       </div>
@@ -36,13 +36,22 @@
       }
     },
     methods: {
+      /**
+       * Muestra y esconde el formulario para agregar una tarea.
+       */
       toggleMostrarFormulario () {
         this.mostrarFormulario = !this.mostrarFormulario
       },
+      /**
+       * Avisa a los componentes externos con un evento acerca de la tarea creada y limpia el formulario.
+       */
       agregarTarea () { 
         this.$emit('crearTarea', { titulo: this.tituloTarea })
         this.reset()
       },
+      /**
+       * Limpia el formulario y lo esconde
+       */
       reset() {
         this.mostrarFormulario = false,
         this.tituloTarea = ''

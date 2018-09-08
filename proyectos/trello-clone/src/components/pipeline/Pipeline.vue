@@ -8,12 +8,12 @@
          </span>
        </a>
     </div>
-    <div class="panel-block column">
+    <div class="panel-block column tareas">
       <draggable class="dragArea" :list="datos.tareas" :options="{ group: 'tareas' }">
         <tarea v-for="tarea in datos.tareas" :key="tarea.titulo" :tarea="tarea"/>
       </draggable>
     </div>
-    <div class="panel-block">
+    <div class="panel-block crear-tarea">
       <form-tarea @crearTarea="crearTarea" />
     </div>
   </div>

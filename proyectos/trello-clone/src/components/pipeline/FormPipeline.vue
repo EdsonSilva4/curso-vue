@@ -34,13 +34,23 @@
       }
     },
     methods: {
+      /**
+       * aviso a los componentes externos que el usuario desea agregar un pipleine
+       * y limpio el formulario
+       */
       agregarPipeline () {
         this.$emit('crearPipeline', { titulo: this.tituloPipeline })
         this.reset()
       },
+      /**
+       * Esconde o muestra el formulario
+       */
       toggleMostrarFormulario () {
         this.mostrarFormulario = !this.mostrarFormulario
       },
+      /**
+       * Limpia y esconde el formulario
+       */
       reset () {
         this.tituloPipeline = ''
         this.mostrarFormulario = false

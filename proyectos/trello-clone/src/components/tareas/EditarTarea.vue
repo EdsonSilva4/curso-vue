@@ -47,6 +47,9 @@
       this.tareaInterna = this.tarea
     },
     methods: {
+      /**
+       * Copia la información temporal de "tareaInterna" hacia tarea.
+       */
       guardar () {
         this.tarea.titulo = this.tareaInterna.titulo
         this.tarea.descripcion = this.tareaInterna.descripcion
