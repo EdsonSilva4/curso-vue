@@ -41,6 +41,7 @@
       },
       agregarTarea () { 
         this.$emit('crearTarea', { titulo: this.tituloTarea })
+        this.reset()
       },
       reset() {
         this.mostrarFormulario = false,
