@@ -46,7 +46,7 @@
       crearPipeline(pipeline) {
         this.pizarron.pipelines.push({
           titulo: pipeline.titulo,
-          items: []
+          tareas: []
         })
       },
       /**

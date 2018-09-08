@@ -9,7 +9,9 @@
        </a>
     </div>
     <div class="panel-block column">
-      <tarea v-for="tarea in datos.tareas" :key="tarea.titulo" :tarea="tarea"/>
+      <draggable class="dragArea" :list="datos.tareas" :options="{ group: 'tareas' }">
+        <tarea v-for="tarea in datos.tareas" :key="tarea.titulo" :tarea="tarea"/>
+      </draggable>
     </div>
     <div class="panel-block">
       <form-tarea @crearTarea="crearTarea" />
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+  import draggable from 'vuedraggable'
+
   import FormTarea from '../tareas/FormTarea.vue'
   import Tarea from '../tareas/Tarea.vue'
   export default {
@@ -56,11 +60,14 @@
     },
     components: {
       'form-tarea': FormTarea,
-      'tarea': Tarea
+      'tarea': Tarea,
+      'draggable': draggable
     }
   }
 </script>
 
 <style scoped>
-
+  .dragArea {
+    min-height: 20px;
+  }
 </style>
