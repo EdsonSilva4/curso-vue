@@ -8,7 +8,7 @@
 
 ### Construyendo la app
 
-1. La app va a poder leer la posicion de la persona en el mundo.
+1. La app va a poder leer la posicion de la persona en el mundo. [*]
 2. Conocer el pronostico del clima para una cierta posicion.
 3. Dar indicadores gráficos del estado del tiempo: 
   * % de humedad.
